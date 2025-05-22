@@ -19,6 +19,14 @@ def read_file(file_path):
     """
     # 请在下方编写代码
     # 使用open()函数打开文件并读取内容
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            content = file.read()
+        return content
+    except FileNotFoundError:
+        return f"错误：文件 '{file_path}' 不存在"
+    except Exception as e:
+        return f"读取文件时发生错误：{e}"
     pass
 
 def write_file(file_path, content):
@@ -34,4 +42,12 @@ def write_file(file_path, content):
     """
     # 请在下方编写代码
     # 使用with语句和open()函数写入内容到文件
+    try:
+        with open(file_path, 'w', encoding='utf-8') as file:
+            file.write(content)
+        return True
+    except PermissionError:
+        return f"错误：没有权限写入文件 '{file_path}'"
+    except Exception as e:
+        return f"写入文件时发生错误：{e}"
     pass 
