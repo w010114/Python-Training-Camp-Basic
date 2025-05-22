@@ -23,4 +23,16 @@ def check_grade(score):
     - 对应的等级：优秀、良好、中等、及格、不及格
     """
     # 请在下方编写代码
+    if 90 <= score <= 100:
+        return "优秀"
+    elif 80 <= score < 90:
+        return "良好"
+    elif 70 <= score < 80:
+        return "中等"
+    elif 60 <= score < 70:
+        return "及格"
+    elif 0 <= score < 60:
+        return "不及格"
+    else:
+        return "无效成绩（分数应在0-100之间）"
     pass 
